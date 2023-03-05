@@ -4,7 +4,7 @@ const path = require('path');
 const route = require('./routes/indexRoute');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
-const db = require('./config/db/index');
+const db = require('./app/models/connection');
 
 app.use(
     express.urlencoded({
@@ -13,9 +13,9 @@ app.use(
 );
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+app.use(cors('*'));
 
-db.connect();
+// db.connect();
 
 route(app);
 

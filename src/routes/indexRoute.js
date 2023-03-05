@@ -1,7 +1,10 @@
-const DonateRoute = require('./donate');
+const WordsRoute = require('./word');
 
 function route(app) {
-    app.use('/donate', DonateRoute);
+    app.use('/words', WordsRoute);
+    app.use('/', (req, res, next) => {
+        res.json("abc ....");
+    });
 }
 
 module.exports = route;
